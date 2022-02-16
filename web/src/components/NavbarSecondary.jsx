@@ -60,9 +60,9 @@ const NavbarSecondary = function () {
               <Flex key={contact.id} classes="my-auto px-6">
                 <StyledContactLinks
                   $iconColor={accent.default.color}
-                  $iconColorHover={accent.light.color}
+                  $iconColorHover={accent.dark.color}
                   $textColor={neutral.white.color}
-                  $textColorHover={accent.light.color}
+                  $textColorHover={accent.dark.color}
                   href={contact.url}
                   target="_blank"
                   rel="noopener"
@@ -78,9 +78,9 @@ const NavbarSecondary = function () {
               <Flex key={social._id} classes="my-auto pl-3">
                 <StyledSocialLinks
                   $iconColor={accent.default.color}
-                  $iconColorHover={accent.light.color}
+                  $iconColorHover={accent.dark.color}
                   $textColor={neutral.white.color}
-                  $textColorHover={accent.light.color}
+                  $textColorHover={accent.dark.color}
                   href={social.url}
                   target="_blank"
                   rel="noopener"

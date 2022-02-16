@@ -33,4 +33,18 @@ export default {
       type: 'string',
     },
   ],
+  preview: {
+    select: {
+      title: 'name',
+      price: 'price',
+      media: 'icon',
+    },
+    prepare(selection) {
+      const { title, price, media } = selection;
+      return {
+        title: `${title} - ${price}`,
+        media,
+      };
+    },
+  },
 };

@@ -3,7 +3,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import '../utils/FontAwesomeIconLibrary';
 
-import { Section, Flex, AnchorText } from '.';
+import { Section, Grid, Col, AnchorText } from '.';
 import { useSanity } from '../hooks';
 
 const LinkFooter = () => {
@@ -13,8 +13,8 @@ const LinkFooter = () => {
   return (
     <Section padding="sm" bgColor={neutral.lighter.color}>
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-        <Flex classes="justify-around flex-col lg:flex-row">
-          <div className="space-y-6">
+        <Grid classes="lg:grid-cols-12 justify-around">
+          <Col classes="space-y-6 col-span-6">
             <div className="mx-auto text-center">
               <GatsbyImage
                 image={logo.footer?.asset?.gatsbyImageData}
@@ -52,8 +52,9 @@ const LinkFooter = () => {
                 ))
               )}
             </div>
-          </div>
-          <Flex classes="justify-between grid grid-cols-2 lg:grid-flow-col flex-col lg:flex-row gap-12">
+          </Col>
+          <Col classes="col-span-3">
+            {/* <Col classes="justify-between grid grid-cols-2 lg:grid-flow-col flex-col lg:flex-row gap-12"> */}
             {footers.map((footer) =>
               footer.footerItem.map((item) => (
                 <div key={item._key} className="mt-12 xl:mt-0">
@@ -82,30 +83,87 @@ const LinkFooter = () => {
                 </div>
               ))
             )}
+          </Col>
+          <Col classes="col-span-3">
             <div className="mt-12 xl:mt-0">
               <h4 className="text-md font-semibold text-zinc-800 tracking-wider uppercase">
-                Get In Touch
+                Open Hours
               </h4>
               <ul className="mt-4 space-y-4">
-                {footers.map((item) =>
+                <li>
+                  <AnchorText
+                    type="external"
+                    color={neutral.default.color}
+                    colorHover={accent.default.color}
+                    href="#"
+                    className="text-base break-all"
+                  >
+                    Tue-Wed: 10AM-9PM
+                  </AnchorText>
+                </li>
+                <li>
+                  <AnchorText
+                    type="external"
+                    color={neutral.default.color}
+                    colorHover={accent.default.color}
+                    href="#"
+                    className="text-base break-all"
+                  >
+                    Thu: 11AM-7PM
+                  </AnchorText>
+                </li>
+                <li>
+                  <AnchorText
+                    type="external"
+                    color={neutral.default.color}
+                    colorHover={accent.default.color}
+                    href="#"
+                    className="text-base break-all"
+                  >
+                    Fri: 9AM-4PM
+                  </AnchorText>
+                </li>
+                <li>
+                  <AnchorText
+                    type="external"
+                    color={neutral.default.color}
+                    colorHover={accent.default.color}
+                    href="#"
+                    className="text-base break-all"
+                  >
+                    Sat: 9AM-3PM
+                  </AnchorText>
+                </li>
+                <li>
+                  <AnchorText
+                    type="external"
+                    color={neutral.default.color}
+                    colorHover={accent.default.color}
+                    href="#"
+                    className="text-base break-all"
+                  >
+                    Sun-Mon: CLOSED
+                  </AnchorText>
+                </li>
+                {/* {footers.map((item) =>
                   item.contactLinks.map((contact) => (
                     <li key={contact.id}>
                       <AnchorText
                         type="external"
                         color={neutral.default.color}
                         colorHover={accent.default.color}
-                        href={contact.url}
+                        href="#"
                         className="text-base break-all"
                       >
                         {contact.anchor}
                       </AnchorText>
                     </li>
                   ))
-                )}
+                )} */}
               </ul>
             </div>
-          </Flex>
-        </Flex>
+          </Col>
+        </Grid>
       </div>
     </Section>
   );
