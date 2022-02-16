@@ -38,36 +38,17 @@ const StyledAnchorLink = styled((props) => <AnchorLink {...props} />)`
   }
 `;
 
-const Button = ({
+const Button = function ({
   linkType,
   label,
   internalLink,
   externalLink,
   jumpLink,
   secondaryBtn,
-}) => {
+}) {
   const { website, primary, secondary, accent, neutral, hero } = useSanity();
 
   switch (linkType === null || undefined ? 'internal' : linkType) {
-    default:
-      return (
-        <StyledButtonInternal
-          to={
-            internalLink === null || undefined
-              ? '/'
-              : internalLink === 'home'
-              ? '/'
-              : `/${internalLink}/`
-          }
-          className="inline-flex items-center py-3 px-6 text-lg font-bold text-zinc-50 hover:text-white border border-zinc-50 hover:border-zinc-50 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 hover:-translate-y-0.5 translate transform transition-all"
-          $bgColor={accent.default.color}
-          $bgColorHover={accent.dark.color}
-        >
-          <span className="drop-shadow-text-cta">
-            {label === null || undefined ? 'Call Now' : label}
-          </span>
-        </StyledButtonInternal>
-      );
     case 'internal':
       return (
         <StyledButtonInternal
@@ -135,13 +116,32 @@ const Button = ({
             secondaryBtn === null || undefined ? false : secondaryBtn
           }
           $bgColor={secondaryBtn ? 'transparent' : accent.default.color}
-          $bgColorHover={secondaryBtn ? neutral.dark.color : accent.dark.color}
+          $bgColorHover={secondaryBtn ? accent.dark.color : accent.dark.color}
           $colorHover={secondaryBtn ? accent.default.color : accent.dark.color}
         >
           <span className="drop-shadow-text-cta">
             {label === null || undefined ? 'Call Now' : label}
           </span>
         </StyledAnchorLink>
+      );
+    default:
+      return (
+        <StyledButtonInternal
+          to={
+            internalLink === null || undefined
+              ? '/'
+              : internalLink === 'home'
+              ? '/'
+              : `/${internalLink}/`
+          }
+          className="inline-flex items-center py-3 px-6 text-lg font-bold text-zinc-50 hover:text-white border border-zinc-50 hover:border-zinc-50 rounded-md shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 hover:-translate-y-0.5 translate transform transition-all"
+          $bgColor={accent.default.color}
+          $bgColorHover={accent.dark.color}
+        >
+          <span className="drop-shadow-text-cta">
+            {label === null || undefined ? 'Call Now' : label}
+          </span>
+        </StyledButtonInternal>
       );
   }
 };
