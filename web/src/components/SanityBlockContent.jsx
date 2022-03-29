@@ -9,6 +9,15 @@ const SanityBlockContent = function ({ blocks, classes }) {
   const { primary, secondary, accent, neutral, hero } = useSanity();
 
   const serializers = {
+    list: (props) => {
+      const { type } = props;
+      const bullet = type === 'bullet';
+      if (bullet) {
+        return <ul className="sanity-ul">{props.children}</ul>;
+      }
+      return <ol className="sanity-ol">{props.children}</ol>;
+    },
+    listItem: ({ children }) => <li className="">{children}</li>,
     marks: {
       internalLink: ({ mark, children }) => {
         const { reference = {} } = mark;

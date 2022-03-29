@@ -22,15 +22,14 @@
 @tailwind utilities;
 
 @layer utilities {
-  .sanity-list ul {
-    list-style-type: disc !important;
-    margin-left: 40px !important;
-    text-indent: -1em !important;
+  .sanity-ul {
+    @apply list-disc !important;
+    margin-left: 1.5em !important;
   }
 
-  .sanity-list > ul > li {
-    list-style-position: inside !important;
-    text-indent: -1.5em !important;
+  .sanity-ol {
+    @apply list-decimal !important;
+    margin-left: 1.5em !important;
   }
 
   .list-indent {
