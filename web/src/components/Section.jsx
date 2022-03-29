@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StyledSection } from './styles/Section.styled';
 
-const Section = ({
+const Section = function ({
   padding,
   children,
   classes,
@@ -10,20 +10,8 @@ const Section = ({
   bgColor,
   h2Color,
   h3Color,
-}) => {
+}) {
   switch (padding) {
-    default:
-      return (
-        <StyledSection
-          $bgColor={bgColor}
-          $h2Color={h2Color}
-          $h3Color={h3Color}
-          className={`relative py-24 ${classes}`}
-          id={idName}
-        >
-          {children}
-        </StyledSection>
-      );
     case 'lg':
       return (
         <StyledSection
@@ -79,6 +67,18 @@ const Section = ({
           $h2Color={h2Color}
           $h3Color={h3Color}
           className={`relative py-0 ${classes}`}
+          id={idName}
+        >
+          {children}
+        </StyledSection>
+      );
+    default:
+      return (
+        <StyledSection
+          $bgColor={bgColor}
+          $h2Color={h2Color}
+          $h3Color={h3Color}
+          className={`relative py-24 ${classes}`}
           id={idName}
         >
           {children}

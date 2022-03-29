@@ -29,7 +29,7 @@ const StyledLink = styled((props) => <Link {...props} />)`
   }
 `;
 
-const FeaturesHome = () => {
+const FeaturesHome = function () {
   const data = useStaticQuery(graphql`
     query FeaturesHomeQ {
       imgFeatureOne: file(
@@ -120,7 +120,7 @@ const FeaturesHome = () => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const TrustAwardsHome = () => {
+const TrustAwardsHome = function () {
   const data = useStaticQuery(graphql`
     query TrustAwardsHomeQ {
       imgAward: file(
@@ -32,7 +32,7 @@ const TrustAwardsHome = () => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

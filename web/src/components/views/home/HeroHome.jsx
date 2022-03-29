@@ -65,7 +65,7 @@
 //   };
 
 //   const controls = useAnimation();
-//   const { ref, inView } = useInView();
+//   const { ref, inView } = useInView({ triggerOnce: true });
 
 //   useEffect(() => {
 //     if (inView) {

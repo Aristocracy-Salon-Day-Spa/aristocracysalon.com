@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
 import { Button } from '../..';
 import { useSanity } from '../../../hooks';
 
-const CtaHome = () => {
+const CtaHome = function () {
   const data = useStaticQuery(graphql`
     query CtaHomeQ {
       imgCta: file(
@@ -32,7 +32,7 @@ const CtaHome = () => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

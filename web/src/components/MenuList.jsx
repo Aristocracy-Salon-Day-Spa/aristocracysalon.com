@@ -63,7 +63,7 @@ const MenuList = ({
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {
@@ -76,16 +76,17 @@ const MenuList = ({
   return (
     <Section
       idName={idName}
-      type="my"
+      padding="none"
+      classes="pt-24 pb-8"
       bgColor={neutral.white.color}
       h2Color={neutral.darker.color}
       h3Color={secondary.dark.color}
     >
-      <div classes="max-w-md px-4 text-center sm:max-w-3xl lg:max-w-7xl">
+      <div className="space-y-32">
         {category.map((item) => (
           <Container
             key={item._key}
-            classes="mb-32 bg-zinc-100 p-3 lg:p-6 rounded-xl shadow-xl"
+            classes="bg-zinc-100 p-3 lg:p-6 rounded-xl shadow-xl"
           >
             <h3 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl text-center">
               {item.headline}
