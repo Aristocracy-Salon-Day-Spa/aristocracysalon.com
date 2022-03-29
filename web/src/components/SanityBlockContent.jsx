@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { AnchorText } from '.';
 import { useSanity } from '../hooks';
 
-const SanityBlockContent = ({ blocks, classes }) => {
+const SanityBlockContent = function ({ blocks, classes }) {
   const { primary, secondary, accent, neutral, hero } = useSanity();
 
   const serializers = {
@@ -58,7 +58,7 @@ const SanityBlockContent = ({ blocks, classes }) => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { StyledContainer } from './styles/Container.styled';
 
-const Container = ({ padding, children, classes, bgColor }) => {
+const Container = function ({ padding, children, classes, bgColor }) {
   const variants = {
     initial: { opacity: 0, scale: 0.8 },
     animate: {
@@ -19,7 +19,7 @@ const Container = ({ padding, children, classes, bgColor }) => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

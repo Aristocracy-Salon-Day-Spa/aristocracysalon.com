@@ -6,21 +6,21 @@ import PropTypes from 'prop-types';
 
 import { Button } from '.';
 
-const HeroContact = ({
+const HeroContact = function ({
   imgHeroBg,
   altText,
   headerText,
   subheaderText,
   anchor,
   title,
-}) => {
+}) {
   const variants = {
     hidden: { opacity: 0, scale: 0.8, x: -100 },
     visible: { opacity: 1, scale: 1, x: 0 },
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

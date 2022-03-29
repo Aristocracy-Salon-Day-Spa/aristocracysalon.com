@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const TrustSignalsHome = () => {
+const TrustSignalsHome = function () {
   // const data = useStaticQuery(graphql`
   //   query TrustSignalsHomeQ {
   //     imgHeroBg: file(
@@ -38,7 +38,7 @@ const TrustSignalsHome = () => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

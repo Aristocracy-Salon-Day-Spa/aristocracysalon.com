@@ -4,7 +4,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const ReviewTwoHome = () => {
+const ReviewTwoHome = function () {
   const data = useStaticQuery(graphql`
     query ReviewTwoHomeQ {
       imgReview: file(
@@ -36,7 +36,7 @@ const ReviewTwoHome = () => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {
@@ -51,7 +51,7 @@ const ReviewTwoHome = () => {
     <motion.div
       ref={ref}
       variants={containerVariants}
-      initial={'hidden'}
+      initial="hidden"
       animate={controls}
       className="bg-white pt-16 lg:py-24"
     >
@@ -61,7 +61,7 @@ const ReviewTwoHome = () => {
             <div
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-1/2 bg-white lg:hidden"
-            ></div>
+            />
             <div className="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:p-0 lg:h-full">
               <motion.div
                 ref={ref}
@@ -99,11 +99,11 @@ const ReviewTwoHome = () => {
                   <p className="text-base font-medium text-white">John Smith</p>
                   <div className="flex flex-row">
                     <span className="h-6 mt-3 text-center text-yellow-400">
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
-                      <i className="fas fa-star"></i>
+                      <i className="fas fa-star" />
+                      <i className="fas fa-star" />
+                      <i className="fas fa-star" />
+                      <i className="fas fa-star" />
+                      <i className="fas fa-star" />
                       <span className="ml-3 text-base font-semibold text-indigo-100">
                         Google Review
                       </span>

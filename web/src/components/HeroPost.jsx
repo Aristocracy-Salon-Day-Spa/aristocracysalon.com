@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import { Button } from '.';
 
-const HeroPost = ({
+const HeroPost = function ({
   imgHeroBg,
   altText,
   headerText,
@@ -14,14 +14,14 @@ const HeroPost = ({
   tags,
   tagTitle,
   publishedAt,
-}) => {
+}) {
   const variants = {
     hidden: { opacity: 0, scale: 0.8, x: -100 },
     visible: { opacity: 1, scale: 1, x: 0 },
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

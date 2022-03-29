@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const Grid = ({ children, classes }) => {
+const Grid = function ({ children, classes }) {
   const variants = {
     initial: { opacity: 0, scale: 0.8 },
     animate: {
@@ -17,7 +17,7 @@ const Grid = ({ children, classes }) => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

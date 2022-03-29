@@ -14,7 +14,7 @@ const StyledIcon = styled.div`
   color: ${(props) => props.$color};
 `;
 
-const BenefitsHome = () => {
+const BenefitsHome = function () {
   const data = useStaticQuery(graphql`
     query BenefitsHomeQ {
       imgBenefitOne: file(
@@ -93,7 +93,7 @@ const BenefitsHome = () => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

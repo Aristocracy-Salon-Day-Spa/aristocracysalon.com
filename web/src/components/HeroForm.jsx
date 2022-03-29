@@ -25,7 +25,7 @@ const HeroForm = ({ block, raw, index, headline, bgImg }) => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

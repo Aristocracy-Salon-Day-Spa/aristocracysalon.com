@@ -20,7 +20,7 @@ const content = {
   subHeadline: 'Give us a call at',
 };
 
-const CallOutHome = () => {
+const CallOutHome = function () {
   const data = useStaticQuery(graphql`
     query CallOutHomeQ {
       imgCallOutBg: file(
@@ -45,7 +45,7 @@ const CallOutHome = () => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

@@ -5,7 +5,7 @@ import { GatsbyImage } from 'gatsby-plugin-image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
-const NavHome = () => {
+const NavHome = function () {
   const data = useStaticQuery(graphql`
     query NavHomeQ {
       imgAbout: file(
@@ -72,7 +72,7 @@ const NavHome = () => {
   };
 
   const controls = useAnimation();
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
     if (inView) {

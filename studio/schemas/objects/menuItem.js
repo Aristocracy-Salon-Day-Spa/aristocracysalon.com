@@ -23,14 +23,14 @@ export default {
       type: 'string',
     },
     {
-      title: 'Description',
-      name: 'description',
-      type: 'portableTextBody',
-    },
-    {
       title: 'Price',
       name: 'price',
       type: 'string',
+    },
+    {
+      title: 'Description',
+      name: 'description',
+      type: 'portableTextBody',
     },
   ],
   preview: {
